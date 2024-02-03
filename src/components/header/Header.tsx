@@ -24,15 +24,13 @@ const Header = () => {
             <span>Mega Papelaria</span>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button onClick={toggleMobileMenu}>
-            <FaBars className="text-gray-500" />
+              <FaBars className="text-gray-500" />
             </button>
           </div>
 
-          {/* Desktop Search */}
-          <div className="hidden lg:flex items-center bg-gray-200 rounded p-1">
+          <div className="lg:flex items-center bg-gray-200 rounded p-1 hidden lg:flex">
             <MdSearch className="text-gray-500" />
             <input
               type="text"
@@ -41,18 +39,16 @@ const Header = () => {
             />
           </div>
 
-          {/* Desktop Icons */}
-          <div className="hidden lg:flex items-center space-x-9 ml-4">
+          <div className="lg:flex items-center space-x-9 ml-4">
             <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
             <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
             <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
           </div>
-        </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden flex items-center justify-center border-t mt-2 pt-4">
+          
+        </div>
+
+        <div className="hidden lg:flex justify-center border-t mt-2 pt-4">
           <a href="#" className="text-gray-700 hover:text-gray-900">
             Início
           </a>
@@ -69,7 +65,27 @@ const Header = () => {
             Papelaria
           </a>
         </div>
-      )}
+
+        {isMobileMenuOpen && (
+          <div className="lg:hidden flex flex-col items-center mt-2 pt-4">
+            <a href="#" className="text-gray-700 hover:text-gray-900">
+              Início
+            </a>
+            <div className="border-l mx-2 h-4"></div>
+            <a href="#" className="text-gray-700 hover:text-gray-900">
+              Lançamentos
+            </a>
+            <div className="border-l mx-2 h-4"></div>
+            <a href="#" className="text-gray-700 hover:text-gray-900">
+              Coleções
+            </a>
+            <div className="border-l mx-2 h-4"></div>
+            <a href="#" className="text-gray-700 hover:text-gray-900">
+              Papelaria
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
