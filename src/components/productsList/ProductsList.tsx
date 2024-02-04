@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { MdFavorite } from "react-icons/md";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 const products = [
   { id: 1, name: "Caneta", price: 2.5, image: "/pen.jpg" },
@@ -11,7 +15,9 @@ const products = [
   { id: 8, name: "Lápis", price: 1.0, image: "/pencil.jpg" },
 ];
 
-const ProductList: React.FC = () => {
+const ProductsList = () => {
+  const { likedProducts, toggleLike } = useGlobalContext();
+
   return (
     <div className="container mx-auto mt-10">
       <h2 className="text-4xl font-bold mb-4 text-center">Nossos Produtos</h2>
@@ -36,7 +42,7 @@ const ProductList: React.FC = () => {
                   R$ {product.price.toFixed(2)}
                 </p>
               </div>
-              <div className="flex justify-center mt-4">
+              <div className="flex justify-center items-center mt-4">
                 <Link
                   href={`/products/update?id=${product.id}&name=${product.name}&image=${product.image}&price=${product.price}`}
                 >
@@ -45,6 +51,14 @@ const ProductList: React.FC = () => {
                   </button>
                 </Link>
               </div>
+              <button
+                onClick={() => toggleLike(product.id)}
+                className={`text-2xl cursor-pointer ${
+                  likedProducts.includes(product.id) ? "text-red-500" : ""
+                }`}
+              >
+                <MdFavorite />
+              </button>
             </div>
           </li>
         ))}
@@ -53,4 +67,4 @@ const ProductList: React.FC = () => {
   );
 };
 
-export default ProductList;
+export default ProductsList;

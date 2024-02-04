@@ -9,12 +9,18 @@ import {
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import Link from "next/link";
+import LikesModal from "./LikesModal";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -41,7 +47,10 @@ const Header = () => {
           </div>
 
           <div className="hidden lg:flex items-center space-x-9 ml-4">
-            <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
+            <MdFavorite
+              onClick={toggleModal}
+              className="text-red-500 text-2xl cursor-pointer"
+            />
             <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
             <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
           </div>
@@ -70,7 +79,10 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden flex flex-col items-center mt-2 pt-4">
             <div className="flex space-x-6 mb-5">
-              <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
+              <MdFavorite
+                onClick={toggleModal}
+                className="text-red-500 text-2xl cursor-pointer"
+              />
               <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
               <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
             </div>
@@ -96,6 +108,22 @@ const Header = () => {
                 Papelaria
               </span>
             </Link>
+          </div>
+        )}
+
+        {/* Modal */}
+
+        {isModalOpen && (
+          <div className="fixed top-0 left-0 w-full flex items-center justify-center z-50">
+            <div className="relative bg-gray-200 p-4 rounded shadow-md">
+              <LikesModal />
+              <button
+                className="bg-pink-500 text-white px-4 py-2 rounded-md mt-4 absolute top-full right-0"
+                onClick={toggleModal}
+              >
+                Close
+              </button>
+            </div>
           </div>
         )}
       </div>

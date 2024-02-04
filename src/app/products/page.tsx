@@ -1,11 +1,13 @@
-import ProductList from "@/components/productsList/ProductsList";
+import { GlobalProvider } from "@/context/GlobalContext";
+import ProductsList from "@/components/productsList/ProductsList";
 
-const Producer = () => {
+
+const Products = () => {
   return (
-    // <ProducerProvider>
-     <ProductList/>
-    // </ProducerProvider>
+    <GlobalProvider>
+      <ProductsList />
+    </GlobalProvider>
   );
 };
 
-export default Producer;
+export default Products;
