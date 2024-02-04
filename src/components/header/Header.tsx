@@ -40,7 +40,7 @@ const Header = () => {
             />
           </div>
 
-          <div className="lg:flex items-center space-x-9 ml-4">
+          <div className="hidden lg:flex items-center space-x-9 ml-4">
             <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
             <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
             <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
@@ -69,6 +69,12 @@ const Header = () => {
 
         {isMobileMenuOpen && (
           <div className="lg:hidden flex flex-col items-center mt-2 pt-4">
+            <div className="flex space-x-6 mb-5">
+              <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
+              <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
+              <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
+            </div>
+
             <Link href="/">
               <span className="text-gray-700 hover:text-gray-900">Início</span>
             </Link>
