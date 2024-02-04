@@ -8,6 +8,7 @@ import {
 } from "react-icons/md";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import Link from "next/link";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,45 +45,51 @@ const Header = () => {
             <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
             <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
           </div>
-
-          
         </div>
 
         <div className="hidden lg:flex justify-center border-t mt-2 pt-4">
-          <a href="#" className="text-gray-700 hover:text-gray-900">
-            Início
-          </a>
+          <Link href="/">
+            <span className="text-gray-700 hover:text-gray-900">Início</span>
+          </Link>
           <div className="border-l mx-2 h-4"></div>
-          <a href="#" className="text-gray-700 hover:text-gray-900">
-            Lançamentos
-          </a>
+          <Link href="/products">
+            <span className="text-gray-700 hover:text-gray-900">
+              Lançamentos
+            </span>
+          </Link>
           <div className="border-l mx-2 h-4"></div>
-          <a href="#" className="text-gray-700 hover:text-gray-900">
-            Coleções
-          </a>
+          <Link href="/products">
+            <span className="text-gray-700 hover:text-gray-900">Coleções</span>
+          </Link>
           <div className="border-l mx-2 h-4"></div>
-          <a href="#" className="text-gray-700 hover:text-gray-900">
-            Papelaria
-          </a>
+          <Link href="/products">
+            <span className="text-gray-700 hover:text-gray-900">Papelaria</span>
+          </Link>
         </div>
 
         {isMobileMenuOpen && (
           <div className="lg:hidden flex flex-col items-center mt-2 pt-4">
-            <a href="#" className="text-gray-700 hover:text-gray-900">
-              Início
-            </a>
+            <Link href="/">
+              <span className="text-gray-700 hover:text-gray-900">Início</span>
+            </Link>
             <div className="border-l mx-2 h-4"></div>
-            <a href="#" className="text-gray-700 hover:text-gray-900">
-              Lançamentos
-            </a>
+            <Link href="/products">
+              <span className="text-gray-700 hover:text-gray-900">
+                Lançamentos
+              </span>
+            </Link>
             <div className="border-l mx-2 h-4"></div>
-            <a href="#" className="text-gray-700 hover:text-gray-900">
-              Coleções
-            </a>
+            <Link href="/products">
+              <span className="text-gray-700 hover:text-gray-900">
+                Coleções
+              </span>
+            </Link>
             <div className="border-l mx-2 h-4"></div>
-            <a href="#" className="text-gray-700 hover:text-gray-900">
-              Papelaria
-            </a>
+            <Link href="/products">
+              <span className="text-gray-700 hover:text-gray-900">
+                Papelaria
+              </span>
+            </Link>
           </div>
         )}
       </div>

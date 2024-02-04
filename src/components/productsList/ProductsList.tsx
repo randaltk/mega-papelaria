@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const products = [
   { id: 1, name: "Caneta", price: 2.5, image: "/pen.jpg" },
   { id: 2, name: "Bloco de Notas", price: 5.0, image: "/bloco.jpg" },
@@ -18,7 +20,7 @@ const ProductList: React.FC = () => {
         {products.map((product) => (
           <li
             key={product.id}
-            className="mb-8 bg-white rounded-lg overflow-hidden shadow-md"
+            className="mb-8 bg-white rounded-lg overflow-hidden shadow-md flex flex-col"
           >
             <div className="relative h-64">
               <img
@@ -27,11 +29,22 @@ const ProductList: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-6">
-              <p className="text-xl font-semibold mb-2">{product.name}</p>
-              <p className="text-pink-500 text-lg font-bold">
-                R$ {product.price.toFixed(2)}
-              </p>
+            <div className="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <p className="text-xl font-semibold mb-2">{product.name}</p>
+                <p className="text-pink-500 text-lg font-bold">
+                  R$ {product.price.toFixed(2)}
+                </p>
+              </div>
+              <div className="flex justify-center mt-4">
+                <Link
+                  href={`/products/update?id=${product.id}&name=${product.name}&image=${product.image}&price=${product.price}`}
+                >
+                  <button className="bg-pink-500 text-white px-6 py-2 rounded-md hover:bg-pink-600">
+                    Visualizar
+                  </button>
+                </Link>
+              </div>
             </div>
           </li>
         ))}
