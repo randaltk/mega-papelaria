@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { useGlobalContext } from "@/context/GlobalContext";
 
@@ -10,7 +12,7 @@ const LikesModal = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Liked Product IDs</h2>
+      <h2 className="text-2xl font-bold mb-4">Favoritos</h2>
       <ul>
         {likedProducts.map((productId) => (
           <>

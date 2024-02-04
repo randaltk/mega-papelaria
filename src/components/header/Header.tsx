@@ -28,7 +28,10 @@ const Header = () => {
       <div className="max-w-screen-lg mx-auto">
         <div className="container mx-auto flex items-center justify-between">
           <div className="text-xl font-bold ">
-            <span>Mega Papelaria</span>
+            <Link href="/">
+              {" "}
+              <span>Mega Papelaria</span>
+            </Link>
           </div>
 
           <div className="lg:hidden">
@@ -47,10 +50,9 @@ const Header = () => {
           </div>
 
           <div className="hidden lg:flex items-center space-x-9 ml-4">
-            <MdFavorite
-              onClick={toggleModal}
-              className="text-red-500 text-2xl cursor-pointer"
-            />
+            <Link href="/favorites">
+              <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
+            </Link>
             <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
             <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
           </div>
