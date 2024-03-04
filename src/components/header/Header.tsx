@@ -23,17 +23,18 @@ const Header = () => {
       <div className="max-w-screen-lg mx-auto">
         <div className="container mx-auto flex items-center justify-between">
           <div className="text-xl font-bold">
-            <Link href="/">
+            <Link href="/" aria-label="Go to the homepage">
               <img
                 src="/logo.png"
                 className="object-contain h-28 w-auto"
                 alt="Logo"
+                loading="lazy"
               />
             </Link>
           </div>
 
           <div className="lg:hidden">
-            <button onClick={toggleMobileMenu}>
+            <button aria-label="toggle mobile" onClick={toggleMobileMenu}>
               <FaBars className="text-gray-500" />
             </button>
           </div>
@@ -48,7 +49,7 @@ const Header = () => {
           </div>
 
           <div className="hidden lg:flex items-center space-x-9 ml-4">
-            <Link href="/favorites">
+            <Link href="/favorites" aria-label="Go to the favorites page">
               <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
             </Link>
             <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
@@ -57,21 +58,21 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex justify-center border-t mt-2 pt-4">
-          <Link href="/">
+          <Link href="/" aria-label="Go to the homepage">
             <span className="text-gray-700 hover:text-gray-900">Início</span>
           </Link>
           <div className="border-l mx-2 h-4"></div>
-          <Link href="/products">
+          <Link href="/products"  aria-label="Go to the products page">
             <span className="text-gray-700 hover:text-gray-900">
               Lançamentos
             </span>
           </Link>
           <div className="border-l mx-2 h-4"></div>
-          <Link href="/products">
+          <Link href="/products"  aria-label="Go to the products page">
             <span className="text-gray-700 hover:text-gray-900">Coleções</span>
           </Link>
           <div className="border-l mx-2 h-4"></div>
-          <Link href="/products">
+          <Link href="/products"  aria-label="Go to the products page">
             <span className="text-gray-700 hover:text-gray-900">Papelaria</span>
           </Link>
         </div>
@@ -79,30 +80,30 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden flex flex-col items-center mt-2 pt-4">
             <div className="flex space-x-6 mb-5">
-              <Link href="/favorites">
+              <Link href="/favorites"  aria-label="Go to the favorites page">
                 <MdFavorite className="text-red-500 text-2xl cursor-pointer" />
               </Link>
               <MdAccountCircle className="text-gray-700 text-2xl cursor-pointer" />
               <MdShoppingCart className="text-gray-700 text-2xl cursor-pointer" />
             </div>
 
-            <Link href="/">
+            <Link href="/"  aria-label="Go to the homepage">
               <span className="text-gray-700 hover:text-gray-900">Início</span>
             </Link>
             <div className="border-l mx-2 h-4"></div>
-            <Link href="/products">
+            <Link href="/products"  aria-label="Go to the products page">
               <span className="text-gray-700 hover:text-gray-900">
                 Lançamentos
               </span>
             </Link>
             <div className="border-l mx-2 h-4"></div>
-            <Link href="/products">
+            <Link href="/products"  aria-label="Go to the products page">
               <span className="text-gray-700 hover:text-gray-900">
                 Coleções
               </span>
             </Link>
             <div className="border-l mx-2 h-4"></div>
-            <Link href="/products">
+            <Link href="/products"  aria-label="Go to the products page">
               <span className="text-gray-700 hover:text-gray-900">
                 Papelaria
               </span>

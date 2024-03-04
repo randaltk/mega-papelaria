@@ -33,6 +33,7 @@ const ProductsList = () => {
                 src={product.image}
                 alt={product.name}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div className="p-6 flex-grow flex flex-col justify-between">
@@ -44,18 +45,27 @@ const ProductsList = () => {
               </div>
               <div className="flex justify-center items-center mt-4">
                 <Link
+                  aria-label="Go to the product details page"
                   href={`/products/update?id=${product.id}&name=${product.name}&image=${product.image}&price=${product.price}`}
                 >
-                  <button className="bg-pink-custom text-white px-6 py-2 rounded-md hover:bg-pink-800">
+                  <button
+                    aria-label="Visualizar"
+                    className="bg-pink-custom text-white px-6 py-2 rounded-md hover:bg-pink-800"
+                  >
                     Visualizar
                   </button>
                 </Link>
               </div>
               <button
-                onClick={() => toggleLike(product,)}
+                onClick={() => toggleLike(product)}
                 className={`text-2xl cursor-pointer ${
                   likedProducts.includes(product) ? "text-red-500" : ""
                 }`}
+                aria-label={
+                  likedProducts.includes(product)
+                    ? "Remover dos favoritos"
+                    : "Adicionar aos favoritos"
+                }
               >
                 <MdFavorite />
               </button>

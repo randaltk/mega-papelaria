@@ -2,9 +2,10 @@ const Banner = () => {
   return (
     <div className="relative overflow-hidden h-64 md:h-96">
       <img
-        src="/papelaria.jpg"
+        src="/papelaria.webp"
         alt="Papelaria"
         style={{ objectFit: "cover", objectPosition: "center" }}
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="absolute inset-0 flex items-center justify-center text-white text-center">

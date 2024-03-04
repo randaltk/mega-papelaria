@@ -18,13 +18,14 @@ const ProductDetail = () => {
           src={imgParam!}
           alt={nameParam || "Image"}
           className="w-full mb-4"
+          loading="lazy"
         />
 
         {priceParam && (
           <p className="text-gray-700 mb-4">Preço: R$ {priceParam}</p>
         )}
 
-        <button className="bg-pink-custom text-white px-6 py-2 rounded-md hover:bg-pink-800">
+        <button aria-label="Comprar" className="bg-pink-custom text-white px-6 py-2 rounded-md hover:bg-pink-800">
           Comprar
         </button>
       </div>
