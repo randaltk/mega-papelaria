@@ -9,8 +9,8 @@ import React, {
 } from "react";
 
 interface GlobalContextProps {
-  likedProducts: number[];
-  toggleLike: (productId: number) => void;
+  likedProducts: Product[];
+  toggleLike: (product: Product) => void;
 }
 
 const GlobalContext = createContext<GlobalContextProps | undefined>(undefined);
@@ -19,16 +19,23 @@ interface GlobalProviderProps {
   children: ReactNode;
 }
 
-export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
-  const [likedProducts, setLikedProducts] = useState<number[]>([]);
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
 
-  const toggleLike = (productId: number) => {
+export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
+  const [likedProducts, setLikedProducts] = useState<Product[]>([]);
+
+  const toggleLike = (product: Product) => {
     setLikedProducts((prevLikedProducts) => {
-      const isLiked = prevLikedProducts.includes(productId);
+      const isLiked = prevLikedProducts.some((p) => p.id === product.id);
       const updatedLikedProducts = isLiked
-        ? prevLikedProducts.filter((id) => id !== productId)
-        : [...prevLikedProducts, productId];
-      console.log("att context", updatedLikedProducts);
+        ? prevLikedProducts.filter((p) => p.id !== product.id)
+        : [...prevLikedProducts, product];
+
       localStorage.setItem(
         "likedProducts",
         JSON.stringify(updatedLikedProducts)
@@ -39,7 +46,6 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    // Fetch likedProducts from local storage on component mount
     const storedLikedProducts = localStorage.getItem("likedProducts");
     if (storedLikedProducts) {
       setLikedProducts(JSON.parse(storedLikedProducts));
@@ -47,12 +53,8 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    // This will run whenever likedProducts is updated
     console.log("LikedProducts updated:", likedProducts);
-
-    // You can add more logic here if needed
-
-  }, [likedProducts]); // Run when likedProducts changes
+  }, [likedProducts]);
 
   return (
     <GlobalContext.Provider value={{ likedProducts, toggleLike }}>
@@ -60,6 +62,7 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
+
 export const useGlobalContext = () => {
   const context = useContext(GlobalContext);
   if (!context) {

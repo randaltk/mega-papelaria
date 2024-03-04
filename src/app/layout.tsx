@@ -9,7 +9,7 @@ import { GlobalProvider } from "@/context/GlobalContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mega Papelaria",
+  title: "Planeta das Canetas",
   description: "",
 };
 

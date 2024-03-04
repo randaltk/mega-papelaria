@@ -7,19 +7,25 @@ import {
   FaCcAmex,
 } from "react-icons/fa";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-pink-500 text-white p-8">
+    <footer className="bg-pink-custom text-white p-8">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
         {/* Logo */}
         {/* <div className="mb-6 md:mb-0">
           <img src="/logo.png" alt="Logo" className="w-16 h-16" />
         </div> */}
-        <div className="text-xl font-bold ">
-            <span>Mega Papelaria</span>
+           <div className="text-xl font-bold">
+            <Link href="/">
+              <img
+                src="/logo.png"
+                className="object-contain h-28 w-auto"
+                alt="Logo"
+              />
+            </Link>
           </div>
-
         {/* Links, Redes Sociais, Informações e Pagamentos */}
         <div className="flex flex-col md:flex-row md:ml-16 gap-8">
           {/* Links Section */}
@@ -108,7 +114,7 @@ const Footer = () => {
       <div className="mt-8 border-t border-gray-600 pt-6 text-center">
         <p>
           <AiOutlineMail className="inline-block mr-2" />{" "}
-          contato@megapapelaria.com
+          contato@planetadascanetas.com
         </p>
         <p>
           <AiOutlinePhone className="inline-block mr-2" /> (123) 456-7890

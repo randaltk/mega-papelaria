@@ -21,7 +21,7 @@ const ProductsList = () => {
   return (
     <div className="container mx-auto mt-10">
       <h2 className="text-4xl font-bold mb-4 text-center">Nossos Produtos</h2>
-      <hr className="border-t-2 border-pink-500 mx-auto w-1/6 mb-12" />
+      <hr className="border-t-2 border-pink-custom mx-auto w-1/6 mb-12" />
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {products.map((product) => (
           <li
@@ -38,7 +38,7 @@ const ProductsList = () => {
             <div className="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <p className="text-xl font-semibold mb-2">{product.name}</p>
-                <p className="text-pink-500 text-lg font-bold">
+                <p className="text-pink-custom text-lg font-bold">
                   R$ {product.price.toFixed(2)}
                 </p>
               </div>
@@ -46,15 +46,15 @@ const ProductsList = () => {
                 <Link
                   href={`/products/update?id=${product.id}&name=${product.name}&image=${product.image}&price=${product.price}`}
                 >
-                  <button className="bg-pink-500 text-white px-6 py-2 rounded-md hover:bg-pink-600">
+                  <button className="bg-pink-custom text-white px-6 py-2 rounded-md hover:bg-pink-800">
                     Visualizar
                   </button>
                 </Link>
               </div>
               <button
-                onClick={() => toggleLike(product.id)}
+                onClick={() => toggleLike(product,)}
                 className={`text-2xl cursor-pointer ${
-                  likedProducts.includes(product.id) ? "text-red-500" : ""
+                  likedProducts.includes(product) ? "text-red-500" : ""
                 }`}
               >
                 <MdFavorite />

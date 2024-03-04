@@ -24,8 +24,8 @@ const ProductDetail = () => {
           <p className="text-gray-700 mb-4">Preço: R$ {priceParam}</p>
         )}
 
-        <button className="bg-pink-500 text-white px-6 py-2 rounded-md hover:bg-pink-600">
-          Adicionar ao Carrinho
+        <button className="bg-pink-custom text-white px-6 py-2 rounded-md hover:bg-pink-800">
+          Comprar
         </button>
       </div>
     </div>

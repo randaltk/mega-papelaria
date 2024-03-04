@@ -22,10 +22,13 @@ const Header = () => {
     <div className="bg-white p-4 shadow-md">
       <div className="max-w-screen-lg mx-auto">
         <div className="container mx-auto flex items-center justify-between">
-          <div className="text-xl font-bold ">
+          <div className="text-xl font-bold">
             <Link href="/">
-              {" "}
-              <span>Mega Papelaria</span>
+              <img
+                src="/logo.png"
+                className="object-contain h-28 w-auto"
+                alt="Logo"
+              />
             </Link>
           </div>
 
