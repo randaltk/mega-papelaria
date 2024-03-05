@@ -28,7 +28,7 @@ const LikesModal = () => {
               />
               <div>
                 <p className="text-lg font-bold">{product?.name}</p>
-                <p className="text-gray-600">${product?.price.toFixed(2)}</p>
+                <p className="text-gray-600">R$ {product?.price}</p>
               </div>
             </div>
           

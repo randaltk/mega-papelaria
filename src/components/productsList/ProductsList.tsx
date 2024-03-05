@@ -3,17 +3,7 @@
 import Link from "next/link";
 import { MdFavorite } from "react-icons/md";
 import { useGlobalContext } from "../../context/GlobalContext";
-
-const products = [
-  { id: 1, name: "Caneta", price: 2.5, image: "/pen.jpg" },
-  { id: 2, name: "Bloco de Notas", price: 5.0, image: "/bloco.jpg" },
-  { id: 3, name: "Lápis", price: 1.0, image: "/pencil.jpg" },
-  { id: 4, name: "Caneta", price: 2.5, image: "/pen.jpg" },
-  { id: 5, name: "Bloco de Notas", price: 5.0, image: "/bloco.jpg" },
-  { id: 6, name: "Lápis", price: 1.0, image: "/pencil.jpg" },
-  { id: 7, name: "Lápis", price: 1.0, image: "/pencil.jpg" },
-  { id: 8, name: "Lápis", price: 1.0, image: "/pencil.jpg" },
-];
+import products from "../../app/data/products.json";
 
 const ProductsList = () => {
   const { likedProducts, toggleLike } = useGlobalContext();
@@ -46,7 +36,7 @@ const ProductsList = () => {
               <div className="flex justify-center items-center mt-4">
                 <Link
                   aria-label="Go to the product details page"
-                  href={`/products/update?id=${product.id}&name=${product.name}&image=${product.image}&price=${product.price}`}
+                  href={`/products/update?id=${product.id}&name=${product.name}&image=${product.image}&price=${product.price}&description=${product.description}&link=${product.link}`}
                 >
                   <button
                     aria-label="Visualizar"
